@@ -1,0 +1,204 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "0.0.0",
+        "title": "Open-Not-Open"
+    },
+    "paths": {
+        "/store": {
+            "post": {
+                "description": "Posts a `Store` Object. This endpoint requires authentication. The authentication token is expected to be contained in the header\n",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "store",
+                        "in": "body",
+                        "description": "Details of the store to save",
+                        "required": true,
+                        "schema": {
+                            "title": "Store Object",
+                            "type": "object",
+                            "properties": {
+                                "store_name": {
+                                    "type": "string"
+                                },
+                                "category": {
+                                    "type": "string"
+                                },
+                                "location": {
+                                    "type": "object",
+                                    "properties": {
+                                        "lat_long": {
+                                            "type": "object",
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "string"
+                                                },
+                                                "long": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "title": "An object representing the just inserted Store, but including the id of the new store",
+                            "type": "object",
+                            "properties": {
+                                "store_id": {
+                                    "type": "string"
+                                },
+                                "store_name": {
+                                    "type": "string"
+                                },
+                                "category": {
+                                    "type": "string"
+                                },
+                                "location": {
+                                    "type": "object",
+                                    "properties": {
+                                        "lat_long": {
+                                            "type": "object",
+                                            "properties": {
+                                                "lat": {
+                                                    "type": "string"
+                                                },
+                                                "long": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed response",
+                        "schema": {
+                            "title": "A simple json response explaining the reason for a failed request",
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "string"
+                                },
+                                "reason": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/store/{storeId}/schedule": {
+            "get": {
+                "description": "Fetches the schedule for a given store",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "storeId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The storeId whose schedule is being fetched"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "title": "An object representing the schedule matching the storeId supplied",
+                            "type": "object",
+                            "properties": {
+                                "store_id": {
+                                    "type": "string"
+                                },
+                                "schedule_id": {
+                                    "type": "string"
+                                },
+                                "regular": {
+                                    "type": "object",
+                                    "description": "an object defining each day's schedule",
+                                    "properties": {
+                                        "mon": {
+                                            "type": "string"
+                                        },
+                                        "tue": {
+                                            "type": "string"
+                                        },
+                                        "wed": {
+                                            "type": "string"
+                                        },
+                                        "thur": {
+                                            "type": "string"
+                                        },
+                                        "fri": {
+                                            "type": "string"
+                                        },
+                                        "sat": {
+                                            "type": "string"
+                                        },
+                                        "sun": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed response",
+                        "schema": {
+                            "title": "A simple json response explaining the reason for a failed request",
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "string"
+                                },
+                                "reason": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
