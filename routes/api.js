@@ -44,12 +44,3 @@ router.get('/store/:store_name', function(req, res, next) {
   res.writeHead(404); //we've not done this part yet 
   res.send('Failed');
 });
-
-/* Endpoint for fetching which stores of a particular type are open in a given location. 
- /category/:category_name. Payload contains info about the location around which stores of that category should be found
-*/
-router.get('/category/:category_name', function(req, res, next) {
-  res.writeHead(404); //we've not done this part yet 
-  res.send('Failed');
-});
-module.exports = router;
