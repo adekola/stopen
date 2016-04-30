@@ -1,0 +1,21 @@
+{
+  "name": "stopen",
+  "description": "App.json file for the review app creation on new pull request",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
