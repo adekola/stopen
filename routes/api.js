@@ -44,3 +44,5 @@ router.get('/store/:store_name', function(req, res, next) {
   res.writeHead(404); //we've not done this part yet 
   res.send('Failed');
 });
+
+module.exports = router;
