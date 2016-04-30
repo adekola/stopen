@@ -14,6 +14,10 @@ router.get('/', function(req, res, next) {
   res.send("Here's the API endpoint which requires authentication of some sort, since it is the entry point for data into the system");
 });
 
+router.post('/', function(req, res, next) {
+  res.send("Here's the API endpoint which requires authentication of some sort, since it is the entry point for data into the system");
+});
+
 /* Endpoint for saving a store entry. The payload is expected to contain the required fields which define a store entry
 
 */
