@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router(); //this is used to manipulate data regardless of the underlying data store
 
 
-router.get('/webhook', function (req, res) {
-  if (req.query['hub.verify_token'] === '<validation_token>') {
+router.get('/webhook/', function (req, res) {
+  if (req.query['hub.verify_token'] === 'well_you_know_who_it_is') {
     res.send(req.query['hub.challenge']);
   }
   res.send('Error, wrong validation token');
